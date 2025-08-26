@@ -1,0 +1,327 @@
+rankup:
+  menu_title: "&8RankUp"
+  open_command:
+    - rankup
+  size: 27
+
+  items:
+    info:
+      material: BOOK
+      slot: 4
+      display_name: "&6RankUp &7| &fVotre progression"
+      lore:
+        - "&7Solde: &a$%vault_eco_balance%"
+        - "&7Niveau: &b%player_level%"
+        - "&7Rang actuel: &e%luckperms_primary_group_name%"
+
+    close:
+      material: BARRIER
+      slot: 22
+      display_name: "&cFermer"
+      left_click_commands:
+        - "[close]"
+
+    # --------------------
+    # RANK B
+    # --------------------
+    B-CURRENT:
+      material: LIME_STAINED_GLASS_PANE
+      slot: 10
+      priority: 1
+      display_name: "&aRang B &7- &aActuel"
+      lore:
+        - "&7Vous êtes déjà &aB"
+      view_requirement:
+        requirements:
+          is_current:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "b"
+
+    B-AVAILABLE:
+      material: GOLD_BLOCK
+      slot: 10
+      priority: 2
+      display_name: "&ePassez au Rang B"
+      lore:
+        - "&7Conditions:"
+        - "  &8- &a$10,000"
+        - "  &8- &bNiveau 10"
+        - "&7Cliquez pour monter en grade."
+      view_requirement:
+        requirements:
+          from_a:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "a"
+      left_click_requirement:
+        requirements:
+          money:
+            type: "greater than or equal to"
+            input: "%vault_eco_balance%"
+            output: 10000
+          level:
+            type: "greater than or equal to"
+            input: "%player_level%"
+            output: 10
+        deny_commands:
+          - "[message] &cVous n'avez pas les conditions pour &lB&c !"
+          - "[sound] ENTITY_VILLAGER_NO 1 1"
+      left_click_commands:
+        - "[close]"
+        - "[console] eco take %player_name% 10000"
+        - "[console] lp user %player_name% parent set b"
+        - "[sound] UI_TOAST_CHALLENGE_COMPLETE 1 1"
+        - "[message] &aFélicitations ! Vous êtes maintenant &lB&a."
+
+    B-LOCKED:
+      material: RED_STAINED_GLASS_PANE
+      slot: 10
+      priority: 99
+      display_name: "&cRang B Verrouillé"
+      lore:
+        - "&7Atteignez d'abord le rang &eA &7pour débloquer."
+
+    # --------------------
+    # RANK C
+    # --------------------
+    C-CURRENT:
+      material: LIME_STAINED_GLASS_PANE
+      slot: 11
+      priority: 1
+      display_name: "&aRang C &7- &aActuel"
+      lore:
+        - "&7Vous êtes déjà &aC"
+      view_requirement:
+        requirements:
+          is_current:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "c"
+
+    C-AVAILABLE:
+      material: GOLD_BLOCK
+      slot: 11
+      priority: 2
+      display_name: "&ePassez au Rang C"
+      lore:
+        - "&7Conditions:"
+        - "  &8- &a$25,000"
+        - "  &8- &bNiveau 20"
+        - "&7Cliquez pour monter en grade."
+      view_requirement:
+        requirements:
+          from_b:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "b"
+      left_click_requirement:
+        requirements:
+          money:
+            type: "greater than or equal to"
+            input: "%vault_eco_balance%"
+            output: 25000
+          level:
+            type: "greater than or equal to"
+            input: "%player_level%"
+            output: 20
+        deny_commands:
+          - "[message] &cVous n'avez pas les conditions pour &lC&c !"
+          - "[sound] ENTITY_VILLAGER_NO 1 1"
+      left_click_commands:
+        - "[close]"
+        - "[console] eco take %player_name% 25000"
+        - "[console] lp user %player_name% parent set c"
+        - "[sound] UI_TOAST_CHALLENGE_COMPLETE 1 1"
+        - "[message] &aFélicitations ! Vous êtes maintenant &lC&a."
+
+    C-LOCKED:
+      material: RED_STAINED_GLASS_PANE
+      slot: 11
+      priority: 99
+      display_name: "&cRang C Verrouillé"
+      lore:
+        - "&7Atteignez d'abord le rang &eB &7pour débloquer."
+
+    # --------------------
+    # RANK D
+    # --------------------
+    D-CURRENT:
+      material: LIME_STAINED_GLASS_PANE
+      slot: 12
+      priority: 1
+      display_name: "&aRang D &7- &aActuel"
+      lore:
+        - "&7Vous êtes déjà &aD"
+      view_requirement:
+        requirements:
+          is_current:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "d"
+
+    D-AVAILABLE:
+      material: GOLD_BLOCK
+      slot: 12
+      priority: 2
+      display_name: "&ePassez au Rang D"
+      lore:
+        - "&7Conditions:"
+        - "  &8- &a$50,000"
+        - "  &8- &bNiveau 30"
+        - "&7Cliquez pour monter en grade."
+      view_requirement:
+        requirements:
+          from_c:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "c"
+      left_click_requirement:
+        requirements:
+          money:
+            type: "greater than or equal to"
+            input: "%vault_eco_balance%"
+            output: 50000
+          level:
+            type: "greater than or equal to"
+            input: "%player_level%"
+            output: 30
+        deny_commands:
+          - "[message] &cVous n'avez pas les conditions pour &lD&c !"
+          - "[sound] ENTITY_VILLAGER_NO 1 1"
+      left_click_commands:
+        - "[close]"
+        - "[console] eco take %player_name% 50000"
+        - "[console] lp user %player_name% parent set d"
+        - "[sound] UI_TOAST_CHALLENGE_COMPLETE 1 1"
+        - "[message] &aFélicitations ! Vous êtes maintenant &lD&a."
+
+    D-LOCKED:
+      material: RED_STAINED_GLASS_PANE
+      slot: 12
+      priority: 99
+      display_name: "&cRang D Verrouillé"
+      lore:
+        - "&7Atteignez d'abord le rang &eC &7pour débloquer."
+
+    # --------------------
+    # RANK E
+    # --------------------
+    E-CURRENT:
+      material: LIME_STAINED_GLASS_PANE
+      slot: 13
+      priority: 1
+      display_name: "&aRang E &7- &aActuel"
+      lore:
+        - "&7Vous êtes déjà &aE"
+      view_requirement:
+        requirements:
+          is_current:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "e"
+
+    E-AVAILABLE:
+      material: GOLD_BLOCK
+      slot: 13
+      priority: 2
+      display_name: "&ePassez au Rang E"
+      lore:
+        - "&7Conditions:"
+        - "  &8- &a$100,000"
+        - "  &8- &bNiveau 40"
+        - "&7Cliquez pour monter en grade."
+      view_requirement:
+        requirements:
+          from_d:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "d"
+      left_click_requirement:
+        requirements:
+          money:
+            type: "greater than or equal to"
+            input: "%vault_eco_balance%"
+            output: 100000
+          level:
+            type: "greater than or equal to"
+            input: "%player_level%"
+            output: 40
+        deny_commands:
+          - "[message] &cVous n'avez pas les conditions pour &lE&c !"
+          - "[sound] ENTITY_VILLAGER_NO 1 1"
+      left_click_commands:
+        - "[close]"
+        - "[console] eco take %player_name% 100000"
+        - "[console] lp user %player_name% parent set e"
+        - "[sound] UI_TOAST_CHALLENGE_COMPLETE 1 1"
+        - "[message] &aFélicitations ! Vous êtes maintenant &lE&a."
+
+    E-LOCKED:
+      material: RED_STAINED_GLASS_PANE
+      slot: 13
+      priority: 99
+      display_name: "&cRang E Verrouillé"
+      lore:
+        - "&7Atteignez d'abord le rang &eD &7pour débloquer."
+
+    # --------------------
+    # RANK F
+    # --------------------
+    F-CURRENT:
+      material: LIME_STAINED_GLASS_PANE
+      slot: 14
+      priority: 1
+      display_name: "&aRang F &7- &aActuel"
+      lore:
+        - "&7Vous êtes déjà &aF"
+      view_requirement:
+        requirements:
+          is_current:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "f"
+
+    F-AVAILABLE:
+      material: GOLD_BLOCK
+      slot: 14
+      priority: 2
+      display_name: "&ePassez au Rang F"
+      lore:
+        - "&7Conditions:"
+        - "  &8- &a$250,000"
+        - "  &8- &bNiveau 50"
+        - "&7Cliquez pour monter en grade."
+      view_requirement:
+        requirements:
+          from_e:
+            type: "string equals ignorecase"
+            input: "%luckperms_primary_group_name%"
+            output: "e"
+      left_click_requirement:
+        requirements:
+          money:
+            type: "greater than or equal to"
+            input: "%vault_eco_balance%"
+            output: 250000
+          level:
+            type: "greater than or equal to"
+            input: "%player_level%"
+            output: 50
+        deny_commands:
+          - "[message] &cVous n'avez pas les conditions pour &lF&c !"
+          - "[sound] ENTITY_VILLAGER_NO 1 1"
+      left_click_commands:
+        - "[close]"
+        - "[console] eco take %player_name% 250000"
+        - "[console] lp user %player_name% parent set f"
+        - "[sound] UI_TOAST_CHALLENGE_COMPLETE 1 1"
+        - "[message] &aFélicitations ! Vous êtes maintenant &lF&a."
+
+    F-LOCKED:
+      material: RED_STAINED_GLASS_PANE
+      slot: 14
+      priority: 99
+      display_name: "&cRang F Verrouillé"
+      lore:
+        - "&7Atteignez d'abord le rang &eE &7pour débloquer."
